@@ -1,0 +1,35 @@
+﻿@model CategoryModel;
+
+<div class="container-fluid">
+    <form enctype="multipart/form-data" asp-action="Edit" asp-controller="Brand" method="post" asp-area="Admin">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" asp-for="Name">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="status" class="form-label">Status:</label>
+            <select class="form-select form-select-lg" asp-for="Status">
+                <option value="1">Active</option>
+                <option value="2">DisActive</option>
+                
+            </select>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="slug" class="form-label">Slug:</label>
+            <input type="text" class="form-control" id="slug" placeholder="Enter Slug" asp-for="Slug">
+
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" rows="5" id="description" asp-for="Description"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div style="margin-top:10px">
+        <a class="btn btn-success" asp-action="Index" asp-controller="Brand" asp-area="Admin">Back To List Categories</a>
+    </div>
+
+</div>

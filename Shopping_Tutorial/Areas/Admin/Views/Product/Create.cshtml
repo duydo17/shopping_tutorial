@@ -1,0 +1,42 @@
+﻿@model ProductModel;
+<div class="container-fluid">
+    <form enctype="multipart/form-data" asp-action="Create" asp-controller="Product" method="post" asp-area="Admin">
+    <div class="mb-3 mt-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter Name" asp-for="Name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" class="form-control" id="price" placeholder="Enter Price" asp-for="Price">
+            <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="slug" class="form-label">Slug:</label>
+        <input type="text" class="form-control" id="slug" placeholder="Enter Slug" asp-for="Slug">
+           
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" rows="5" id="description" asp-for="Description"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div class="mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <select asp-items="@ViewBag.Categories" class="form-control" asp-for="CategoryId"></select>
+    </div>
+    <div class="mb-3">
+        <label for="brand" class="form-label">Brand:</label>
+        <select asp-items="@ViewBag.Brands" class="form-control" asp-for="BrandId"></select>
+    </div>
+    <div class="mb-3 mt-3">
+            <label for="ImageUpload" class="form-label">Image:</label>
+            <input type="file" class="form-control" id="ImageUpload" asp-for="ImageUpload">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div style="margin-top:10px">
+        <a class="btn btn-success" asp-action="Index" asp-controller="Product" asp-area="Admin">Back To List Products</a>
+</div>
+
+</div>

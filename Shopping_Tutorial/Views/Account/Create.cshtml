@@ -1,0 +1,34 @@
+﻿@model UserModel;
+<section id="">
+	<!--form-->
+	<div class="container">
+		<div class="row">
+			
+			
+			<div class="col-sm-8 col-sm-offset-1">
+				<div class="signup-form">
+					<!--sign up form-->
+					<h2>New User Signup!</h2>
+					<form asp-action="Create" asp-controller="Account" method="Post">
+						<div class="mb-3 mt-3">
+							<label for="username" class="form-label">UserName:</label>
+							<input type="text" class="form-control" id="username" placeholder="Enter UserName" asp-for="UserName">
+							<span class="text-danger" asp-validation-for="UserName"></span>
+						</div>
+						<div class="mb-3 mt-3">
+							<label for="email" class="form-label">Email:</label>
+							<input type="text" class="form-control" id="email" placeholder="Enter UserName" asp-for="Email">
+							<span class="text-danger" asp-validation-for="Email"></span>
+						</div>
+						<div class="mb-3 mt-3">
+							<label for="password" class="form-label">Password:</label>
+							<input type="password" class="form-control" id="password" placeholder="Enter Password" asp-for="Password">
+							<span class="text-danger" asp-validation-for="Password"></span>
+						</div>
+						<button class="btn btn-primary">Login</button>
+					</form>
+				</div><!--/sign up form-->
+			</div>
+		</div>
+	</div>
+</section><!--/form-->

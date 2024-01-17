@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProductModel>
+
+<div class="container-fluid">
+
+   
+   <h2>List Products</h2>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+       
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="text-align:center">
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Slug</th>                          
+                            <th>Category</th>
+                            <th>Brand</th>
+                            <th>Image</th>
+                            <th>Product Manage</th>
+                            
+                        </tr>
+                    </thead>                    
+                    <tbody style="text-align:center">
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>$@item.Price</td>
+                                <td>@item.Description</td>
+                                <td>@item.Slug</td>
+                                <td>@item.Category.Name</td>
+                                <td>@item.Brand.Name</td>
+                                <td><img src="@item.Image" class="image-thumbnail" width="30%" height="20%" /></td>
+                                <td>
+                                    <a class="btn btn-warning" asp-action="Edit" asp-area="Admin" asp-controller="Product" asp-route-id="@item.Id">Update</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-area="Admin" asp-controller="Product" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                     
+                   
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

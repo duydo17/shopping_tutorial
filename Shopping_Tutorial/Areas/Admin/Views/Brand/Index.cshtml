@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BrandModel>
+
+    
+
+<div class="container-fluid">
+
+   
+   <h2>List Brands</h2>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+       
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead style="text-align:center">
+                        <tr>
+                            <th>Name</th>                         
+                            <th>Description</th>
+                            <th>Slug</th>                          
+                            <th>Status</th>                            
+                            <th>Brand Manage</th>
+                            
+                        </tr>
+                    </thead>                    
+                    <tbody style="text-align:center">
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.Slug</td>
+                                <td>@(item.Status == 1 ? "Active":"DisActive")</td>
+                                
+                                <td>
+                                    <a class="btn btn-warning" asp-action="Edit" asp-area="Admin" asp-controller="Brand" asp-route-id="@item.Id">Update</a>
+                                    <a class="btn btn-danger" asp-action="delete" asp-area="Admin" asp-controller="Brand" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                     
+                   
+                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
